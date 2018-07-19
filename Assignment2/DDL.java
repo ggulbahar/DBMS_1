@@ -96,6 +96,28 @@ public class DDL {
 	
 	static void listAllTypes () {
 		
+		File f = new File ("/Users/gg/Documents/ggdb/sys.cat");
+		
+		try {
+			
+			RandomAccessFile raf = new RandomAccessFile(f,"rw");
+			
+			int cursor=6;
+			
+			while(cursor<raf.length()) {
+				cursor+=5;
+				raf.seek(cursor);
+				for(int i = 0; i<12; i++) System.out.print((char)raf.readByte());
+				System.out.println(); 
+				raf.seek(cursor-2);
+				cursor=raf.readShort();
+			}
+			
+			
+			
+		}catch(IOException e) {
+			
+		}
 		
 	}
 	
